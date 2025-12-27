@@ -16,8 +16,6 @@ A comprehensive Microsoft Hyper-V skill that provides Claude Code with deep expe
 ## Installation
 
 ```bash
-# Create the skill directory and extract the package
-mkdir -p ~/.claude/skills/hyper-v-expert
 unzip hyper-v-expert.skill -d ~/.claude/skills/hyper-v-expert
 ```
 
