@@ -12,6 +12,7 @@ A comprehensive Microsoft Hyper-V skill that provides Claude Code with deep expe
 - **GPU Acceleration** - Discrete Device Assignment (DDA), GPU Partitioning
 - **Replication** - Hyper-V Replica configuration, failover operations
 - **PowerShell** - Comprehensive cmdlet reference and automation patterns
+- **Live Documentation Lookup** - Fetches official Microsoft docs for accuracy verification
 
 ## Installation
 
@@ -57,9 +58,20 @@ Once installed, Claude Code will automatically use this skill when you ask about
 
 ## Documentation Sources
 
-This skill was built using official Microsoft documentation:
-- [Windows Server Hyper-V Documentation](https://github.com/MicrosoftDocs/windowsserverdocs/tree/main/WindowsServerDocs/virtualization/hyper-v)
-- [Hyper-V PowerShell Module](https://learn.microsoft.com/en-us/powershell/module/hyper-v/)
+This skill includes local reference documentation and can fetch live content from official Microsoft sources when needed:
+
+- [Windows Server Hyper-V Documentation](https://github.com/MicrosoftDocs/windowsserverdocs/tree/main/WindowsServerDocs/virtualization/hyper-v) - Conceptual docs, architecture guides
+- [Hyper-V PowerShell Module](https://learn.microsoft.com/en-us/powershell/module/hyper-v/) - Cmdlet syntax and parameters
+
+### Live Documentation Lookup
+
+The skill will automatically fetch from these sources when:
+- You ask about version-specific features (e.g., Server 2025)
+- You need verification of cmdlet parameters or syntax
+- The question involves edge cases not covered in local references
+- You explicitly request up-to-date information
+
+This ensures accuracy even as Microsoft updates their documentation.
 
 ## License
 

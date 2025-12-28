@@ -223,6 +223,109 @@ Measure-VM -VMName "VMName"
 Get-WinEvent -FilterHashTable @{ProviderName="Microsoft-Windows-Hyper-V-Hypervisor"; ID=2} -MaxEvents 1
 ```
 
+## Live Documentation Lookup
+
+When you need to verify accuracy, check for updates, or answer questions about edge cases, use WebFetch to retrieve official documentation.
+
+### When to Fetch Live Documentation
+
+- User asks about version-specific features (Server 2025, etc.)
+- User questions accuracy of provided information
+- Topic involves recent changes or new features
+- Local references don't cover the specific scenario
+- User asks about cmdlet parameters or syntax details
+
+### Documentation Sources
+
+#### 1. Microsoft Learn - Hyper-V PowerShell Reference
+
+For cmdlet syntax, parameters, and examples:
+
+```
+Base URL: https://learn.microsoft.com/en-us/powershell/module/hyper-v/
+```
+
+**Common cmdlet documentation URLs:**
+- `https://learn.microsoft.com/en-us/powershell/module/hyper-v/new-vm`
+- `https://learn.microsoft.com/en-us/powershell/module/hyper-v/get-vm`
+- `https://learn.microsoft.com/en-us/powershell/module/hyper-v/set-vm`
+- `https://learn.microsoft.com/en-us/powershell/module/hyper-v/new-vmswitch`
+- `https://learn.microsoft.com/en-us/powershell/module/hyper-v/enable-vmreplication`
+
+**URL pattern:** `https://learn.microsoft.com/en-us/powershell/module/hyper-v/{cmdlet-name}`
+
+#### 2. GitHub - Windows Server Docs Repository
+
+For conceptual documentation, architecture guides, and detailed explanations:
+
+```
+Base URL: https://github.com/MicrosoftDocs/windowsserverdocs/tree/main/WindowsServerDocs/virtualization/hyper-v
+Raw content: https://raw.githubusercontent.com/MicrosoftDocs/windowsserverdocs/main/WindowsServerDocs/virtualization/hyper-v/
+```
+
+**Key documentation paths (append to raw content base URL):**
+| Topic | Path |
+|-------|------|
+| Live migration overview | `manage/live-migration-overview.md` |
+| Scheduler types | `manage/manage-hyper-v-scheduler-types.md` |
+| CPU groups | `manage/manage-hyper-v-cpugroups.md` |
+| Integration services | `manage/Manage-Hyper-V-integration-services.md` |
+| Remote management | `manage/Remotely-manage-Hyper-V-hosts.md` |
+| VHD Set files | `manage/Create-VHDSet-file.md` |
+| Persistent memory | `manage/persistent-memory-cmdlets.md` |
+
+**To discover additional paths:** Fetch the GitHub tree URL to browse available files:
+`https://github.com/MicrosoftDocs/windowsserverdocs/tree/main/WindowsServerDocs/virtualization/hyper-v/{subdirectory}`
+
+Subdirectories: `get-started/`, `plan/`, `deploy/`, `manage/`
+
+### Fetch Workflow
+
+1. **Identify the topic** - Determine if it's a cmdlet question (→ Microsoft Learn) or conceptual (→ GitHub docs)
+
+2. **Construct the URL:**
+   - For cmdlets: `https://learn.microsoft.com/en-us/powershell/module/hyper-v/{cmdlet-name-lowercase}`
+   - For concepts: `https://raw.githubusercontent.com/MicrosoftDocs/windowsserverdocs/main/WindowsServerDocs/virtualization/hyper-v/{path}`
+
+3. **Use WebFetch** with a focused prompt:
+   ```
+   WebFetch(url, "Extract the {specific information needed} from this documentation")
+   ```
+
+4. **Cross-reference** with local reference files if needed
+
+### Example Fetch Scenarios
+
+**Scenario: User asks about New-VM parameters for Server 2025**
+```
+WebFetch URL: https://learn.microsoft.com/en-us/powershell/module/hyper-v/new-vm
+Prompt: "List all parameters for New-VM cmdlet with their descriptions"
+```
+
+**Scenario: User asks about live migration requirements**
+```
+WebFetch URL: https://raw.githubusercontent.com/MicrosoftDocs/windowsserverdocs/main/WindowsServerDocs/virtualization/hyper-v/manage/live-migration-overview.md
+Prompt: "Extract the requirements and configuration steps for live migration"
+```
+
+**Scenario: User asks about scheduler types**
+```
+WebFetch URL: https://raw.githubusercontent.com/MicrosoftDocs/windowsserverdocs/main/WindowsServerDocs/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types.md
+Prompt: "Explain the different hypervisor scheduler types and when to use each"
+```
+
+**Scenario: User needs cmdlet parameter details**
+```
+WebFetch URL: https://learn.microsoft.com/en-us/powershell/module/hyper-v/set-vm
+Prompt: "Find the CheckpointType parameter values and their meanings"
+```
+
+**Scenario: Discover available documentation on a topic**
+```
+WebFetch URL: https://github.com/MicrosoftDocs/windowsserverdocs/tree/main/WindowsServerDocs/virtualization/hyper-v/deploy
+Prompt: "List all markdown files in this directory related to deployment"
+```
+
 ## External Resources
 
 - [Official Hyper-V Documentation](https://github.com/MicrosoftDocs/windowsserverdocs/tree/main/WindowsServerDocs/virtualization/hyper-v)
