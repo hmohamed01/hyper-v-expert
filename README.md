@@ -1,5 +1,9 @@
 # Hyper-V Expert Skill for Claude Code
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20Server-blue.svg)](https://www.microsoft.com/windows-server)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet.svg)](https://claude.ai/code)
+
 A comprehensive Microsoft Hyper-V skill that provides Claude Code with deep expertise in Windows Server virtualization.
 
 ## Features
